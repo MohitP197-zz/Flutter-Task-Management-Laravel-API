@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:taskmanagement/pages/event/add_event_page.dart';
+import 'package:taskmanagement/pages/event_page.dart';
+import 'package:taskmanagement/pages/task/add_task_page.dart';
 import 'package:taskmanagement/pages/task_page.dart';
+import 'package:taskmanagement/widgets/custom_button.dart';
 
 void main() => runApp(MyApp());
 
@@ -10,10 +14,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Task Management',
-      theme: ThemeData(
-        primarySwatch: Colors.red,
-        fontFamily: "Montserrat"
-      ),
+      theme: ThemeData(primarySwatch: Colors.red, fontFamily: "Montserrat"),
       home: MyHomePage(),
     );
   }
@@ -45,7 +46,17 @@ class _MyHomePageState extends State<MyHomePage> {
         ],
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          showDialog(
+              barrierDismissible: false,
+              context: context,
+              builder: (BuildContext context) {
+                return Dialog(
+                    child: AddEventPage(),
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(12))));
+              });
+        },
         child: Icon(Icons.add),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
@@ -86,42 +97,33 @@ class _MyHomePageState extends State<MyHomePage> {
           padding: const EdgeInsets.all(24.0),
           child: _upcomingEvents(context),
         ),
-        TaskPage(),
-        
+        Expanded(child: EventPage()),
+        // Expanded(child: TaskPage()),
       ],
     );
   }
-
 
   Widget _upcomingEvents(BuildContext context) {
     return Row(
       children: <Widget>[
         Expanded(
-          child: MaterialButton(
-            onPressed: () {},
-            shape:
-                RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-            color: Theme.of(context).accentColor,
-            textColor: Colors.white,
-            padding: const EdgeInsets.all(14.0),
-            child: Text("Tasks"),
-          ),
-        ),
+            child: CustomButton(
+          onPressed: () {},
+          buttonText: "Tasks",
+          color: Theme.of(context).accentColor,
+          textColor: Colors.white,
+        )),
         SizedBox(
           width: 32,
         ),
         Expanded(
-          child: MaterialButton(
-            onPressed: () {},
-            shape: RoundedRectangleBorder(
-                side: BorderSide(color: Theme.of(context).accentColor),
-                borderRadius: BorderRadius.circular(12)),
-            color: Colors.white,
-            textColor: Theme.of(context).accentColor,
-            padding: const EdgeInsets.all(14.0),
-            child: Text("Events"),
-          ),
-        )
+            child: CustomButton(
+          onPressed: () {},
+          buttonText: "Events",
+          color: Colors.white,
+          textColor: Theme.of(context).accentColor,
+          borderColor: Theme.of(context).accentColor,
+        )),
       ],
     );
   }
