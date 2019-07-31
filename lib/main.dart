@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:taskmanagement/pages/event/add_event_page.dart';
-import 'package:taskmanagement/pages/event_page.dart';
+import 'package:taskmanagement/pages/event/event_page.dart';
 import 'package:taskmanagement/pages/task/add_task_page.dart';
-import 'package:taskmanagement/pages/task_page.dart';
+import 'package:taskmanagement/pages/task/task_page.dart';
 import 'package:taskmanagement/widgets/custom_button.dart';
 
 void main() => runApp(MyApp());
@@ -26,8 +26,16 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  PageController _pageController = PageController();
+
+  double currentPage = 0;
   @override
   Widget build(BuildContext context) {
+    _pageController.addListener(() {
+      setState(() {
+        currentPage = _pageController.page;
+      });
+    });
     return Scaffold(
       body: Stack(
         children: <Widget>[
@@ -53,7 +61,7 @@ class _MyHomePageState extends State<MyHomePage> {
               builder: (BuildContext context) {
                 return Dialog(
                     // child: AddEventPage(),
-                    child: AddTaskPage(),
+                    child: currentPage == 0 ? AddTaskPage() : AddEventPage(),
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.all(Radius.circular(12))));
               });
@@ -80,7 +88,7 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
-  Column _mainContent(BuildContext context) {
+  Widget _mainContent(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
@@ -98,8 +106,12 @@ class _MyHomePageState extends State<MyHomePage> {
           padding: const EdgeInsets.all(24.0),
           child: _upcomingEvents(context),
         ),
-        // Expanded(child: EventPage()),
-        Expanded(child: TaskPage()),
+        Expanded(
+            child: PageView(
+          controller: _pageController,
+          children: <Widget>[TaskPage(), EventPage()],
+        )),
+        // Expanded(child: TaskPage()),
       ],
     );
   }
@@ -111,8 +123,13 @@ class _MyHomePageState extends State<MyHomePage> {
             child: CustomButton(
           onPressed: () {},
           buttonText: "Tasks",
-          color: Theme.of(context).accentColor,
-          textColor: Colors.white,
+          color:
+              currentPage < 0.5 ? Theme.of(context).accentColor : Colors.white,
+          textColor:
+              currentPage < 0.5 ? Colors.white : Theme.of(context).accentColor,
+          borderColor: currentPage < 0.5
+              ? Colors.transparent
+              : Theme.of(context).accentColor,
         )),
         SizedBox(
           width: 32,
@@ -121,9 +138,13 @@ class _MyHomePageState extends State<MyHomePage> {
             child: CustomButton(
           onPressed: () {},
           buttonText: "Events",
-          color: Colors.white,
-          textColor: Theme.of(context).accentColor,
-          borderColor: Theme.of(context).accentColor,
+          color:
+              currentPage > 0.5 ? Theme.of(context).accentColor : Colors.white,
+          textColor:
+              currentPage > 0.5 ? Colors.white : Theme.of(context).accentColor,
+          borderColor: currentPage > 0.5
+              ? Colors.transparent
+              : Theme.of(context).accentColor,
         )),
       ],
     );
