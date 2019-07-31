@@ -121,7 +121,11 @@ class _MyHomePageState extends State<MyHomePage> {
       children: <Widget>[
         Expanded(
             child: CustomButton(
-          onPressed: () {},
+          onPressed: () {
+            _pageController.previousPage(
+                duration: Duration(milliseconds: 500),
+                curve: Curves.bounceInOut);
+          },
           buttonText: "Tasks",
           color:
               currentPage < 0.5 ? Theme.of(context).accentColor : Colors.white,
@@ -136,7 +140,11 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
         Expanded(
             child: CustomButton(
-          onPressed: () {},
+          onPressed: () {
+            _pageController.nextPage(
+                duration: Duration(milliseconds: 500),
+                curve: Curves.bounceInOut);
+          },
           buttonText: "Events",
           color:
               currentPage > 0.5 ? Theme.of(context).accentColor : Colors.white,
