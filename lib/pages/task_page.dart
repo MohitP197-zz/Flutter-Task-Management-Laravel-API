@@ -57,7 +57,7 @@ class _TaskPageState extends State<TaskPage> {
     return Container(
       foregroundDecoration: BoxDecoration(color: Color(0x60FDFDFD)),
       child: Padding(
-        padding: const EdgeInsets.only(left: 20.0, bottom: 24.0),
+        padding: const EdgeInsets.only(left: 20.0, top: 24.0),
         child: Row(
           children: <Widget>[
             Icon(

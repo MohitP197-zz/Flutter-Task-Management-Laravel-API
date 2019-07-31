@@ -52,7 +52,8 @@ class _MyHomePageState extends State<MyHomePage> {
               context: context,
               builder: (BuildContext context) {
                 return Dialog(
-                    child: AddEventPage(),
+                    // child: AddEventPage(),
+                    child: AddTaskPage(),
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.all(Radius.circular(12))));
               });
@@ -97,8 +98,8 @@ class _MyHomePageState extends State<MyHomePage> {
           padding: const EdgeInsets.all(24.0),
           child: _upcomingEvents(context),
         ),
-        Expanded(child: EventPage()),
-        // Expanded(child: TaskPage()),
+        // Expanded(child: EventPage()),
+        Expanded(child: TaskPage()),
       ],
     );
   }
