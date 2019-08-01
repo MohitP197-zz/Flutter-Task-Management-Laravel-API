@@ -16,8 +16,8 @@ class Event {
 }
 
 final List<Event> _eventList = [
-  new Event("08:00", "Date with gf", "Personal", true),
-  new Event("09:00", "Drop gf to home", "Personal", true),
+  new Event("08:00", "Meeting with boss", "Work", true),
+  new Event("09:00", "Organize meeting", "Personal", true),
   new Event("11:00", "Go to market", "House", false),
   new Event("5:00", "Meet Bill Dates", "Work", false),
 ];
