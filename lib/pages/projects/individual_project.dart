@@ -7,16 +7,20 @@ class IndividualProjectPage extends StatelessWidget {
   IndividualProjectPage({Key key, this.project}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    final levelIndicator = Container(
-      child: Container(
-        child: LinearProgressIndicator(
-            backgroundColor: Color.fromRGBO(209, 224, 224, 0.2),
-            value: 10,
-            valueColor: AlwaysStoppedAnimation(Colors.green)),
-      ),
-    );
+    // final levelIndicator = Container(
+    //   child: Container(
+    //     child: LinearProgressIndicator(
+    //         backgroundColor: Color.fromRGBO(209, 224, 224, 0.2),
+    //         value: 10,
+    //         valueColor: AlwaysStoppedAnimation(Colors.green)),
+    //   ),
+    // );
 
     final projectStatus = Container(
+        padding: const EdgeInsets.all(7.0),
+        decoration: new BoxDecoration(
+            border: new Border.all(color: Colors.white),
+            borderRadius: BorderRadius.circular(5.0)),
         // padding: const EdgeInsets.all(7.0),
         // decoration: new BoxDecoration(
         // border: new Border.all(color: Colors.white),
