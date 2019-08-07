@@ -43,6 +43,7 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Scaffold(
       appBar: AppBar(
         title: Text('Task Management'),
+        backgroundColor: Color.fromRGBO(58, 66, 86, 1.0),
         centerTitle: true,
       ),
       drawer: Drawers(),

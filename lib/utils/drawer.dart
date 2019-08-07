@@ -64,27 +64,25 @@ class Drawers extends StatelessWidget {
             height: 20.0,
           ),
           ListTile(
-            leading: Icon(
-              Icons.account_balance,
-              color: Colors.black,
-            ),
-            title: Text(
-              'About',
-              style: listStyle,
-            ),
-            onTap: () {}
-          ),
+              leading: Icon(
+                Icons.account_balance,
+                color: Colors.black,
+              ),
+              title: Text(
+                'About',
+                style: listStyle,
+              ),
+              onTap: () {}),
           ListTile(
-            leading: Icon(
-              Icons.build,
-              color: Colors.black,
-            ),
-            title: Text(
-              'Settings',
-              style: listStyle,
-            ),
-            onTap: () {}
-          ),
+              leading: Icon(
+                Icons.build,
+                color: Colors.black,
+              ),
+              title: Text(
+                'Settings',
+                style: listStyle,
+              ),
+              onTap: () {}),
         ],
       ),
     );
