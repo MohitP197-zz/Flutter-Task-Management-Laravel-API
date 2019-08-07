@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:taskmanagement/pages/projects/individual_project.dart';
 import 'package:taskmanagement/pages/projects/projectData.dart';
 
 class ProjectPage extends StatefulWidget {
@@ -72,7 +73,13 @@ class _ProjectPageState extends State<ProjectPage> {
           ),
           trailing:
               Icon(Icons.keyboard_arrow_right, color: Colors.white, size: 30.0),
-          onTap: () {},
+          onTap: () {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) =>
+                        IndividualProjectPage(project: project)));
+          },
         );
     Card makeCard(Project project) => Card(
           elevation: 8.0,
@@ -107,7 +114,9 @@ class _ProjectPageState extends State<ProjectPage> {
           isExtended: true,
           icon: Icon(Icons.add),
           label: Text('New Project', textScaleFactor: 1.0),
-          onPressed: () {}),
+          onPressed: () {
+            Navigator.pop(context);
+          }),
     );
   }
 
