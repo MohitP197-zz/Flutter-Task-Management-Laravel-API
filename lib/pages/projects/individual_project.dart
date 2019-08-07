@@ -53,7 +53,7 @@ class IndividualProjectPage extends StatelessWidget {
         SizedBox(height: 10.0),
         Text(
           project.projectName,
-          style: TextStyle(color: Colors.white, fontSize: 20.0),
+          style: TextStyle(color: Colors.white, fontSize: 22.0),
         ),
         SizedBox(height: 10.0),
         Row(
@@ -65,7 +65,7 @@ class IndividualProjectPage extends StatelessWidget {
                     padding: EdgeInsets.only(left: 1.0),
                     child: Text(
                       project.userId,
-                      style: TextStyle(color: Colors.red),
+                      style: TextStyle(color: Colors.red,fontSize: 17),
                     ))),
             Expanded(flex: 3, child: projectStatus)
           ],
