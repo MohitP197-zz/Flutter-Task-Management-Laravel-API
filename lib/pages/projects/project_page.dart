@@ -1,27 +1,36 @@
 import 'package:flutter/material.dart';
+import 'package:taskmanagement/pages/projects/projectData.dart';
 
 class ProjectPage extends StatefulWidget {
   @override
   _ProjectPageState createState() => _ProjectPageState();
 }
 
-class Project {
-  final String projectName;
-  final String userId;
-  final String status;
-  final bool isComplete;
+// class Project {
+//   final String projectName;
+//   final String userId;
+//   final String status;
+//   final bool isComplete;
 
-  const Project(this.projectName, this.userId, this.status, this.isComplete);
-}
+//   const Project(this.projectName, this.userId, this.status, this.isComplete);
+// }
 
-var data = <Project>[
-  Project("WhyGoNEpal", "Mohit Paudel", "Completed", true),
-  Project("Ecommerce Website", "Mohit Paudel", "Completed", true),
-  Project("Examsys", "Nishu Roka", "Not-Started", false),
-  Project("Doctor Appointment System", "Ganesh Oli", "On-Going", false),
-];
+// var data = <Project>[
+//   Project("WhyGoNEpal", "Mohit Paudel", "Completed", true),
+//   Project("Ecommerce Website", "Mohit Paudel", "Completed", true),
+//   Project("Examsys", "Nishu Roka", "Not-Started", false),
+//   Project("Doctor Appointment System", "Ganesh Oli", "On-Going", false),
+// ];
 
 class _ProjectPageState extends State<ProjectPage> {
+  List projects;
+  @override
+  void initState() {
+    // Fetchng details from projectDetails list
+    projects = projectDetails();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     ListTile makeListTile(Project project) => ListTile(
@@ -79,9 +88,9 @@ class _ProjectPageState extends State<ProjectPage> {
       child: ListView.builder(
         scrollDirection: Axis.vertical,
         shrinkWrap: true,
-        itemCount: data.length,
+        itemCount: projects.length,
         itemBuilder: (BuildContext context, int index) {
-          return makeCard(data[index]);
+          return makeCard(projects[index]);
         },
       ),
     );

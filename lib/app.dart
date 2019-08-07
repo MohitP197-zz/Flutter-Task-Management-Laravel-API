@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:taskmanagement/pages/home/homepage.dart';
+import 'package:taskmanagement/utils/routes/routes.dart';
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
@@ -10,6 +11,8 @@ class MyApp extends StatelessWidget {
       title: 'Task Management',
       theme: ThemeData(primarySwatch: Colors.red, fontFamily: "Montserrat"),
       home: MyHomePage(),
+      initialRoute: '/',
+      onGenerateRoute: routes(),
     );
   }
 }
