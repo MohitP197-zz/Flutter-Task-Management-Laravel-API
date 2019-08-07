@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:taskmanagement/pages/projects/individual_project.dart';
 import 'package:taskmanagement/pages/projects/projectData.dart';
+import 'package:taskmanagement/utils/customized/customized.dart';
 
 class ProjectPage extends StatefulWidget {
   @override
@@ -60,7 +61,7 @@ class _ProjectPageState extends State<ProjectPage> {
                         backgroundColor: Color.fromRGBO(209, 224, 224, 0.2),
                         value: 10,
                         valueColor:
-                            AlwaysStoppedAnimation(_determineColor(project))),
+                            AlwaysStoppedAnimation(determineColor(project))),
                   )),
               Expanded(
                 flex: 4,
@@ -120,13 +121,13 @@ class _ProjectPageState extends State<ProjectPage> {
     );
   }
 
-  Color _determineColor(project) {
-    if (project.status == "Completed") {
-      return Colors.green;
-    } else if (project.status == "Not-Started") {
-      return Colors.red;
-    } else if (project.status == "On-Going") {
-      return Colors.orange;
-    }
-  }
+  // Color _determineColor(project) {
+  //   if (project.status == "Completed") {
+  //     return Colors.green;
+  //   } else if (project.status == "Not-Started") {
+  //     return Colors.red;
+  //   } else if (project.status == "On-Going") {
+  //     return Colors.orange;
+  //   }
+  // }
 }

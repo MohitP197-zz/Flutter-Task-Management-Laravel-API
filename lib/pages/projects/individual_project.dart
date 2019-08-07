@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:taskmanagement/pages/projects/projectData.dart';
+import 'package:taskmanagement/utils/customized/customized.dart';
 
 class IndividualProjectPage extends StatelessWidget {
   final Project project;
@@ -23,10 +24,10 @@ class IndividualProjectPage extends StatelessWidget {
         // child: Text(project.status),
         child: Padding(
             padding: EdgeInsets.only(left: 10.0),
-            child: Text(
-              project.status,
-              style: TextStyle(color: Colors.red),
-            ))
+            child: Text(project.status,
+                style: TextStyle(
+                  color: determineColor(project),
+                )))
         // child: Text(
 
         // ),

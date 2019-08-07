@@ -47,7 +47,7 @@ List projectDetails() {
     Project(
         projectName: "Doctor Appointment System",
         userId: "Ganesh Oli",
-        status: "Not-Started",
+        status: "On-Going",
         isComplete: false,
         description:
             "Doctor Appointment System is for appointing various doctors based on the problem patient is sufferring."),
