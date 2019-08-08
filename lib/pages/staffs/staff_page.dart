@@ -17,6 +17,13 @@ class StaffPage extends StatefulWidget {
 // ];
 
 class _StaffPageState extends State<StaffPage> {
+  List staffs;
+  @override
+  void initState() {
+    staffs = staffDetails();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     ListTile makeListTile(Staff staff) => ListTile(
@@ -58,7 +65,7 @@ class _StaffPageState extends State<StaffPage> {
           trailing:
               Icon(Icons.keyboard_arrow_right, color: Colors.white, size: 30.0),
           onTap: () {
-            _getStaffDetails();
+            _getStaffDetails(context, staff);
             // _getStaffDetails(context, staffData.id);
           },
         );
@@ -76,9 +83,9 @@ class _StaffPageState extends State<StaffPage> {
       child: ListView.builder(
         scrollDirection: Axis.vertical,
         shrinkWrap: true,
-        itemCount: staffData.length,
+        itemCount: staffs.length,
         itemBuilder: (BuildContext context, int index) {
-          return makeCard(staffData[index]);
+          return makeCard(staffs[index]);
         },
       ),
     );
@@ -95,12 +102,16 @@ class _StaffPageState extends State<StaffPage> {
           isExtended: true,
           icon: Icon(Icons.add),
           label: Text('New Staff', textScaleFactor: 1.0),
-          onPressed: () {}),
+          onPressed: () {
+            Navigator.pop(context);
+          }),
     );
   }
 
-  _getStaffDetails() {
-    Navigator.push(context,
-        MaterialPageRoute(builder: (context) => IndividualStaffDetails()));
+  Future _getStaffDetails(BuildContext context, Staff staff) {
+    return Navigator.push(
+        context,
+        MaterialPageRoute(
+            builder: (context) => IndividualStaffDetails(staff: staff)));
   }
 }

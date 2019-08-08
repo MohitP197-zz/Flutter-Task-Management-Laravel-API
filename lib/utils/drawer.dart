@@ -17,73 +17,78 @@ class Drawers extends StatelessWidget {
         color: Colors.black, fontSize: 18.0, fontWeight: FontWeight.normal);
 
     return Drawer(
-      child: ListView(
-        children: <Widget>[
-          UserAccountsDrawerHeader(
-            accountName: Text(
-              'Mohit Paudel',
-              style: textstyle,
+      child: Container(
+        // color: Color.fromRGBO(58, 66, 86, 1.0),
+        color: Colors.blueGrey,
+        child: ListView(
+          children: <Widget>[
+            UserAccountsDrawerHeader(
+              accountName: Text(
+                'Mohit Paudel',
+                style: textstyle,
+              ),
+              accountEmail: Text(
+                'paudel823@gmail.com',
+                style: style,
+              ),
+              currentAccountPicture: CircleAvatar(
+                backgroundColor:
+                    Theme.of(context).platform == TargetPlatform.android
+                        ? Colors.white
+                        : Colors.white,
+                backgroundImage: AssetImage("assets/images/staffs/mohit.jpg"),
+              ),
             ),
-            accountEmail: Text(
-              'paudel823@gmail.com',
-              style: style,
-            ),
-            currentAccountPicture: CircleAvatar(
-              backgroundColor:
-                  Theme.of(context).platform == TargetPlatform.android
-                      ? Colors.white
-                      : Colors.white,
-            ),
-          ),
-          ListTile(
-            leading: Icon(
-              Icons.bookmark,
-              color: Colors.black,
-            ),
-            title: Text(
-              'Projects',
-              style: listStyle,
-            ),
-            onTap: () => Navigator.push(context,
-                MaterialPageRoute(builder: (context) => ProjectPage())),
-          ),
-          ListTile(
-            leading: Icon(
-              Icons.supervised_user_circle,
-              color: Colors.black,
-            ),
-            title: Text(
-              'Staffs',
-              style: listStyle,
-            ),
-            onTap: () => Navigator.push(
-                context, MaterialPageRoute(builder: (context) => StaffPage())),
-          ),
-          Divider(color: Colors.black, height: 1.0),
-          SizedBox(
-            height: 20.0,
-          ),
-          ListTile(
+            ListTile(
               leading: Icon(
-                Icons.account_balance,
+                Icons.bookmark,
                 color: Colors.black,
               ),
               title: Text(
-                'About',
+                'Projects',
                 style: listStyle,
               ),
-              onTap: () {}),
-          ListTile(
+              onTap: () => Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => ProjectPage())),
+            ),
+            ListTile(
               leading: Icon(
-                Icons.build,
+                Icons.supervised_user_circle,
                 color: Colors.black,
               ),
               title: Text(
-                'Settings',
+                'Staffs',
                 style: listStyle,
               ),
-              onTap: () {}),
-        ],
+              onTap: () => Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => StaffPage())),
+            ),
+            Divider(color: Colors.black, height: 1.0),
+            SizedBox(
+              height: 20.0,
+            ),
+            ListTile(
+                leading: Icon(
+                  Icons.account_balance,
+                  color: Colors.black,
+                ),
+                title: Text(
+                  'About',
+                  style: listStyle,
+                ),
+                onTap: () {}),
+            ListTile(
+                leading: Icon(
+                  Icons.build,
+                  color: Colors.black,
+                ),
+                title: Text(
+                  'Settings',
+                  style: listStyle,
+                ),
+                onTap: () {}),
+          ],
+        ),
       ),
     );
   }

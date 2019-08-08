@@ -75,11 +75,7 @@ class _ProjectPageState extends State<ProjectPage> {
           trailing:
               Icon(Icons.keyboard_arrow_right, color: Colors.white, size: 30.0),
           onTap: () {
-            Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (context) =>
-                        IndividualProjectPage(project: project)));
+            _goIntoIndividualProject(context, project);
           },
         );
     Card makeCard(Project project) => Card(
@@ -119,6 +115,13 @@ class _ProjectPageState extends State<ProjectPage> {
             Navigator.pop(context);
           }),
     );
+  }
+
+  Future _goIntoIndividualProject(BuildContext context, Project project) {
+    return Navigator.push(
+        context,
+        MaterialPageRoute(
+            builder: (context) => IndividualProjectPage(project: project)));
   }
 
   // Color _determineColor(project) {

@@ -65,9 +65,9 @@ class IndividualProjectPage extends StatelessWidget {
                     padding: EdgeInsets.only(left: 1.0),
                     child: Text(
                       project.userId,
-                      style: TextStyle(color: Colors.red,fontSize: 17),
+                      style: TextStyle(color: Colors.red, fontSize: 17),
                     ))),
-            Expanded(flex: 3, child: projectStatus)
+            Expanded(flex: 4, child: projectStatus)
           ],
         ),
       ],
